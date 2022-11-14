@@ -8,6 +8,38 @@
 </head>
 <body>
     <script>
+        /*3개 값 입력받고, 3 값 중에서 가장 큰 값을 찾고, 나머지 두 값의 합이 그것보다 크면 된다.*/
+
+        // console.log(13,17,30);
+
+        function triangle(a, b, c) {
+
+            let max;
+            let total;
+
+            // if (a > b) { max = a } //a > b 충족하면 max a
+            // else {max = b}
+            // if (max < c) { max = c }
+
+            if (a > b && a > c) { max = a }
+            else if (b > c) { max = b }
+            else { max = c } //a < b 이고 b < c 인경우는 c
+            //하지만 위의 조건이 더 깔꼼!
+
+            console.log(max);
+            total = a + b + c;
+
+            if (max < (total - max)) { 
+                console.log("YES");
+            }
+            else {
+                console.log("NO");
+            }
+            
+        }
+        // 12 2 18
+        triangle(12,2,18);
+        
 
     </script>
 </body>
