@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        /*
+길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어지면 이 세 막대로 삼각형을 만들 수 있으면 “YES"를 출력하고, 만들 수 없으면 ”NO"를 출력한다.
+▣ 입력설명
+첫 번째 줄에 100이하의 서로 다른 A, B, C 막대의 길이가 주어진다.
+▣ 출력설명
+첫 번째 줄에 “YES", "NO"를 출력한다.
+
+- 순서 -
+1. 세개 값을 입력받고
+2. 확인해서 => 세 값중에 가장 큰 값 찾아야함
+3. 나머지 두개의 길이와 비교해서(큰값 < 두 길이의 합) 만족해야한다.
+
+*/
+
+let a = enter();
+let b = enter();
+let c = enter();
+
+// 2 4 5
+console.log(a,b,c);
+triangle(a,b,c);
+
+
+//첫번째시도 , 너무 더러운 코드
+// if(a > b && a >c && a < (b + c)){ // a가 가장 큰 경우 5 2 4
+//     console.log("YES");
+// }
+// else if(b > a && b >c && b < (a + c)){ //b가 가장 큰 경우 2 5 4
+//     console.log("YES");
+// }
+// else if(c > a && c >b && c < (b + a)){ //c가 가장 큰 경우 2 4 5
+//     console.log("YES");
+// }
+// else{
+//     console.log("NO");
+// }
+function enter(){
+    let a = +prompt("100 이하의 자연수를 입력하세요");
+    return a;
+}
+function triangle(a,b,c){
+    let total = a+b+c;
+    let answer = "YES"
+    let max;
+    if(a>b) {
+        max = a;
+    }
+    else{
+        max = b;
+    }
+    if(c>max){
+        max = c;
+    } //삼각형의 조건
+    if(total-max<=max){
+        answer="NO";
+    }
+    
+    // return answer;
+
+    console.log(answer);
+}
+//답
+
+
+//     function solution(a, b, c){
+//                 let answer="YES", max;
+//                 let tot=a+b+c;
+//                 if(a>b) max=a;
+//                 else max=b;
+//                 if(c>max) max=c;
+//                 if(tot-max<=max) answer="NO"; 
+//                 return answer;
+//             }
+
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
