@@ -1,7 +1,5 @@
-# test3
-git test repository
-이건 깃 테스트입니다!
-깃 테스트라구요!
-hey....!
+# Algorithm-js-
+자바스크립트 인프런 강의를 베이스로 한 알고리즘을 풀어보는 공간입니다!
+
 
 
