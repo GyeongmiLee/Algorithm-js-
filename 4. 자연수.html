@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+자연수 N이 입력되면 1부터 N까지의 합을 출력하는 프로그램을 작성하세요.
+▣ 입력설명
+첫 번째 줄에 20이하의 자연수 N이 입력된다..
+▣ 출력설명
+첫 번째 줄에 1부터 N까지의 합을 출력한다.
+
+ - 순서 - 
+ 1. 자연수 n 입력시 ex. 5라면 1+2+3+4+5(조건 : 20이하)
+ 2. 합 출력 (변수 total)
+
+        */
+
+let number = enter();
+cal(number);
+
+function enter(){
+    let a = +prompt("20 이하의 자연수인 n을 입력하세요");
+    return a;
+}
+function cal(number){
+    let result = 0; //밖으로 빼줘야함....
+    for(let i = 1; i <=number;i++){
+        result = i + result; //1 
+        
+    }
+    console.log(result); //그래야 result for문 밖에서도 알아봄
+}
+    </script>
+</body>
+</html>
