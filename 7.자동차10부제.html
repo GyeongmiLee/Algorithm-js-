@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        서울시는 6월 1일부터 교통 혼잡을 막기 위해서 자동차 10부제를 시행한다. 자동차 10부제는
+        자동차 번호의 일의 자리 숫자와 날짜의 일의 자리 숫자가 일치하면 해당 자동차의 운행을 금
+        지하는 것이다. 예를 들어, 자동차 번호의 일의 자리 숫자가 7이면 7일, 17일, 27일에 운행하
+        지 못한다. 또한, 자동차 번호의 일의 자리 숫자가 0이면 10일, 20일, 30일에 운행하지 못한
+        다.
+        여러분들은 일일 경찰관이 되어 10부제를 위반하는 자동차의 대수를 세는 봉사활동을 하려고
+        한다. 날짜의 일의 자리 숫자가 주어지고 7대의 자동차 번호의 끝 두 자리 수가 주어졌을 때
+        위반하는 자동차의 대수를 출력하는 프로그램을 작성하세요.
+        ▣ 입력설명
+        첫 줄에는 날짜의 일의 자리 숫자가 주어지고 두 번째 줄에는 7대의 자동차 번호의 끝 두 자
+        리 숫자가 주어진다.
+        ▣ 출력설명
+        주어진 날짜와 자동차의 일의 자리 숫자를 보고 10부제를 위반하는 차량의 대수를 출력합니
+        다.
+        */
+
+        /* 방법 1 */
+        function no_access(num) {
+            let car = [23, 31, 21, 41, 71, 89, 90];
+            let result = [];
+            for (let i = 0; i < car.length; i++) {
+                //30일 중 어떤 숫자 넣어도 들어가게 하기 위함
+                if (car[i] % 10 == num % 10) {
+                    result.push(car[i]);
+                }
+            }
+            return result.length;
+        }
+        console.log(no_access(30));
+
+        /* 방법 2 */
+        /* - 순서 - 
+        1. 7자리가 들어간 배열 만들기
+        2. filter사용해서 조건에 들어가는 친구들만 배열에 넣어주자(filter사용시, for문 돌릴 필요없음)
+         - 조건 : 두자리중에 마지막 숫자만 잘라서( 숫자 % 10 == 정해진 일)
+        3. 리턴해서 결과값 console에서 찍기
+        */
+
+        let arr2 = [25, 23, 11, 47, 53, 17, 33];
+        let answer = [];
+        function prohibit_car(date, arr) {
+            answer = arr.filter((element) => element % 10 == date);
+            return answer.length;
+        }
+        console.log("최종 답은 : " + prohibit_car(3, arr2));
+
+
+
+    </script>
+
+
+</body>
+
+</html>
