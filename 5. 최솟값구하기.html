@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최솟값 구하기</title>
+</head>
+
+<body>
+    <script>
+        /*
+        ## 
+
+            - 최솟값 구하기
+            7개의 수가 주어지면 그 숫자 중 가장 작은 수를 출력하는 프로그램을 작성하세요.
+            ▣ 입력설명
+            첫 번째 줄에 7개의 수가 주어진다.
+            ▣ 출력설명
+            첫 번째 줄에 가장 작은 값을 출력한다.
+
+            - 순서 - 
+            1. 배열에 7가지 숫자를 담는다
+            2. 0번과 1번을 비교해서 큰 숫자가 새로운 변수에 담기고(Bignum)
+            3. 그 숫자와 2번쨰 숫자를 비교해 새로운 변수에 담기는 순으로 마지막까지 가야함
+            4. for문을 돌려서 i번째 친구와 변수를 비교해야!
+        */
+
+        //큰값
+        let num = [3, 4, 5, 7, 7, 7, 3];
+        let Bignum = num[0]; //초기화값
+        // console.log(num[0]);
+        // console.log(num.length);
+
+        for (let i = 0; i < num.length; i++) {
+            console.log(Bignum);
+            if (Bignum < num[i + 1]) {
+                Bignum = num[i + 1];
+                console.log("첫번째 if" + Bignum)
+            }
+            console.log(Bignum);
+
+        }
+        console.log("제일 큰 값은:" + Bignum);
+
+        //작은값
+        let num2 = [5, 7, 1, 3, 2, 9, 11];
+        let min_num = num2[0]; //초기화값
+
+
+        for (let i = 0; i < num2.length; i++) {
+            if (min_num > num2[i + 1]) {
+                min_num = num2[i + 1];
+                console.log("첫번째 if" + min_num)
+            }
+        }
+        console.log("제일 작은 값은:" + min_num);
+
+        /* 답 */
+        function solution(arr) {
+            let answer, min = Number.MAX_SAFE_INTEGER; //Number는 객체임
+            /* MAX_SAFE_INTEGER? 최소값을 구하는 문제 풀때 초기화 역할로 사용
+             -> 즉 아주 큰 숫자로 초기화 해두는것(안전한 최대 정수값 의미)
+            */
+            //MIN_SAFE_INTEGER? 최대값 구하는 문제 풀때 초기화 역할로 사용!
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < min) min = arr[i];
+                // 즉 첫번째 숫자는 무조건 참이 됨(min이 최대값이므로)
+            }
+            answer = min;
+            return answer;
+
+        }
+
+        let arr = [5, 7, 1, 3, 2, 9, 11];
+        console.log(solution(arr));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        7개의 자연수가 주어질 때, 이들 중 홀수인 자연수들을 모두 골라 그 합을 구하고, 고른 홀수들 중 최소값을 찾는 프로그램을 작성하세요.
+        예를 들어, 7개의 자연수 12, 77, 38, 41, 53, 92, 85가 주어지면 이들 중 홀수는 77, 41, 53, 85 이므로 그 합은 77 + 41 + 53 + 85 = 256이 되고, 41 < 53 < 77 < 85
+        이므로 홀수들 중 최소값은 41이 된다.
+        ▣ 입력설명
+        첫 번째 줄에 자연수 7개가 주어진다. 주어지는 자연수는 100보다 작다. 홀수가 한 개 이상
+        반드시 존재한다.
+        ▣ 출력설명
+        첫째 줄에 홀수들의 합을 출력하고, 둘째 줄에 홀수들 중 최소값을 출력한다.
+        
+
+        /* 순서 (결과 : 홀수의 합, 홀수들 중 최소값)
+        1) 7개의 자연수(100이 넘지않는) 배열에 담기
+        2) 그 중 홀수인 수만 filter로 걸러서 배열에 담기 (function 불필요)
+        3) 담은 배열을 매개변수로 보내서
+        4) function에서 담은 배열의 합을 구하고 (sum) , 최소값을 구한다(min) 
+        
+        */
+
+        let arr_num = [12, 77, 38, 41, 53, 92, 85];
+        let odd_arr = [];
+        odd_arr = arr_num.filter((element) => element % 2 === 1);
+
+        function cal(arr) {
+            let sum = 0;
+            let min = Number.MAX_SAFE_INTEGER;
+            for (let x of arr) {
+                sum += x;
+                if (min > x) {
+                    min = x;
+                }
+            }
+            console.log(sum, min)
+        }
+        cal(odd_arr);
+
+        /* 알게 된 내용 : 
+        (filter로 거른 배열넣어줄때) array 객체이용한 방식(new Array)과
+        객체 리터럴([]) 이용한 방식의 차이
+        */
+
+        /*
+        let arr_num = [12, 77, 38, 41, 53, 92, 85];
+        let odd_arr = [];
+        odd_arr = arr_num.filter((element) => element % 2 === 1); // 이미 배열로 들어가는거라 
+        console.log(odd_arr);
+        let odd_arr2 = new Array(odd_arr); // 0번째에 모든 배열이 들어가는것임(length가 1임)
+        console.log(odd_arr2);
+        console.log(odd_arr.length);
+        console.log(odd_arr2.length);
+        */
+
+
+        /* 답 */
+        function solution(arr) {
+            let answer = []; //답을 배열로 리턴할것임!
+            let sum = 0, min = 1000; //구해야 할 변수들 따로 지정
+            for (let x of arr) { // for of구문(배열 순환할때 사용)
+                // for in 반복문은 주로 객체에 사용
+                if (x % 2 === 1) {
+                    sum += x;
+                    if (x < min) min = x;
+                }
+            }
+            answer.push(sum); //배열의 메소드
+            answer.push(min);
+            return answer;
+        }
+
+        arr = [12, 77, 38, 41, 53, 92, 85];
+        console.log(solution(arr));
+    </script>
+</body>
+
+</html>
