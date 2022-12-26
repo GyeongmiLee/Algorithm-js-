@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        -> forEach, map, filter, reduce
+             [forEach, 반복문 대신으로 사용한다!]
+
+            function forEach(predicate, thisArg) { // 요런식으로 메서드가 이뤄져있음
+            for (let i = 0; i < a.length; i++) {
+                predicate(a[i], i); // 호출문
+            } -> 대략 이런식으로 되어있는거지, 맞는건 아님(강사님이 이해를 돕기 위한 예시임)
+        };
+        */
+
+        a = [10, 11, 12, 13, 14, 15];
+        a.forEach(function (v, i) { //forEach문에서 인자로 부를때는, 하나만 불러줘도 된다
+            //외워야하는것: forEach(function(값, 인덱스){}); 
+            console.log(v, i);
+        });
+        // forEach안에 들어있는건, 콜백함수(파라미터로 전달받은 함수)의 내부이다!
+
+        /** forEach 자동완성으로 이렇게 나옴
+        a.forEach(element => {
+            console.log(element);
+        }); **/
+
+
+        /*
+        for of: 반복가능한(Array, Map, Set, String, args) 객체를 반복
+            사용법 : for(변수 of 객체) 
+        for in: 객체의 열거 속성을 통해 지정된 변수 반복
+            사용법 : for(변수 in 객체)
+        forEach: 배열(값, 인덱스번호 알수있음!)
+        */
+
+        //for of
+        for (let x of a) {
+            console.log("of문법" + x);
+        }
+
+        //for in 
+        for (let x in a) {
+            console.log("in문법" + x); //배열로 하면 인덱스 나옴
+        }
+        for (let inx in a) {
+            console.log("index:" + inx + "value:" + a[inx]);
+        }
+
+        /* map */
+        let b = a.map(el => el * el)
+        console.log(b);
+        // 주의 : map은 배열을 돌면서 새로운 배열을 만드는것!
+        // 새로운 배열은 원본 배열과 길이가 같다!!
+
+        /* filter */
+        let filter = a.filter(el => el < 13)
+        console.log(filter);
+
+        /* reduce
+        사용법: 배열.reduce((누적값,현재값,인덱스,요소)=> {return 결과}, 초기값);
+        */
+        let result = a.reduce((acc, cur, i) => { //acc: 누적값
+            console.log(acc, cur, i);
+            return acc + cur;
+        }, 0)
+        console.log(result);
+
+        /* reduce를 filter처럼 사용하기 */
+        // result = a.reduce((acc, cur) => {
+        //     if (cur % 2) acc.push(cur);
+        //     return acc;
+        // }, []);
+        // result; // [1, 3]
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
