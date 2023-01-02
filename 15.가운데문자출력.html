@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        가운데 문자 출력
+        소문자로 된 단어(문자열)가 입력되면 그 단어의 가운데 문자를 출력하는 프로그램을 작성하세
+        요. 단 단어의 길이가 짝수일 경우 가운데 2개의 문자를 출력합니다.
+        ▣ 입력설명
+        첫 줄에 문자열이 입력된다. 문자열의 길이는 100을 넘지 않습니다.
+        ▣ 출력설명
+        첫 줄에 가운데 문자를 출력합니다.
+        ▣ 입력예제 1
+        study
+        ▣ 출력예제 1
+        u
+        ▣ 입력예제 2
+        good
+        ▣ 출력예제 2
+        oo
+
+        순서
+        1) prompt를 사용해 문자를 입력받는다(변수에 저장)
+        2) 문자열의 길이를 구해서 
+        - 홀수일 경우: 2로 나눈 자리를 출력하고 study 5/2 = 2
+        - 짝수일 경우: 2로 나눈뒤 goodjo 그 자리와 / 그자리 -1 를 출력한다. good
+        */
+       
+        let answer = prompt("소문자로 된 문자를 입력하세요");
+        const w_in_mid = (answer)=>{
+            let length = answer.length;
+            let mid = Math.floor(length / 2); //이건 답보고 수정함!
+            if(length % 2 === 0){
+                //substr이 특정위치시작, 특정 문자수만큼만 반환하므로!
+                return answer.substr(mid-1,2); 
+            }
+            else{
+                return answer.charAt(mid);
+            }   
+        }
+        console.log(w_in_mid(answer));
+
+    </script>
+</body>
+</html>
