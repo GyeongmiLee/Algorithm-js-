@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        큰 수 출력하기
+        N(1<=N<=100)개의 정수를 입력받아, 자신의 바로 앞 수보다 큰 수만 출력하는 프로그램을 작
+        성하세요.(첫 번째 수는 무조건 출력한다)
+        ▣ 입력설명
+        첫 줄에 자연수 N이 주어지고, 그 다음 줄에 N개의 정수가 입력된다.
+        ▣ 출력설명
+        자신의 바로 앞 수보다 큰 수만 한 줄로 출력한다.
+        ▣ 입력예제 1
+        6
+        7 3 9 5 6 12
+        ▣ 출력예제 1
+        7 9 6 12
+
+        순서 
+        1. 변수 num에 +prompt 입력한 숫자 넣어두고
+        2. fun 안으로 들어와서 for문 돌려서 num만큼만 +prompt 입력받아 배열로 저장해둔다.(arr)
+        3. 배열 arr을 for문 돌려서, (0부터 돌린다.)
+           1) 답으로 출력할 result변수 만들어두고
+           2) result변수에 += arr[0] 넣고
+           3) 0이랑 1이랑 비교해서 1이 더 크면 result변수에 추가...!
+
+        */
+
+        let num = +prompt("출력하고 싶은 숫자의 개수를 입력해주세요")
+        
+        function biggerThanPre(num){
+            let arr = [];
+            let result= "";
+            for(let i = 0; i < num; i++){
+                arr.push(+prompt("출력하고 싶은 숫자를 입력해주세요"))
+            }
+            console.log(arr); // 확인완
+            result += (arr[0] + ","); //이걸 왜 넣었냐고 묻는다면...문자열로 출력하니까 보기가 힘들어서 추가함....!
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i]<arr[i+1]) result+=(arr[i+1] + ",");
+            }
+            return result.substring(0, result.length-1); //, 잘라주려고 한것 (0부터 ,도 문자열 포함이므로 마지막,)
+
+        }
+
+        console.log(biggerThanPre(num))
+
+    </script>
+</body>
+</html>
