@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        보이는 학생
+        선생님이 N(1<=N<=1000)명의 학생을 일렬로 세웠습니다. 일렬로 서 있는 학생의 키가 앞에
+        서부터 순서대로 주어질 때, 맨 앞에 서 있는 선생님이 볼 수 있는 학생의 수를 구하는 프로그
+        램을 작성하세요. (앞에 서 있는 사람들보다 크면 보이고, 작거나 같으면 보이지 않습니다.)
+        ▣ 입력설명
+        첫 줄에 정수 N이 입력된다. 그 다음줄에 N명의 학생의 키가 앞에서부터 순서대로 주어진다.
+        ▣ 출력설명
+        선생님이 볼 수 있는 최대학생수를 출력한다.
+        ▣ 입력예제 1
+        8
+        '130 '135 '148 140 145 '150 150 '153
+        ▣ 출력예제 1
+        5
+
+        순서
+        1) 숫자 입력받고
+        2) 빈배열 변수에 담고
+        3) for문 돌려서 입력받은 숫자만큼 돌려서 키 입력하게 함 => 배열에 push
+        4) func 만들어서, 답 빈배열도 만들고~
+        5) 0번째는 무조건 넣고
+        6) answer배열의 마지막애랑 비교해서 arr[i]번째가 크면 넣기(answer배열은 큰 아이가 가장 뒤 인덱스일테니)
+        7) 
+        */
+
+        let num = +prompt("학생의 수를 입력하세요");
+        let arr = [];
+        for(let i = 0; i < num ; i++){
+            arr.push(+prompt("학생의 키를 입력하세요(cm입력불가)"));
+        }
+        function taller_than_pre(arr){
+            let answer = [];
+            answer.push(arr[0]);
+            for(let i = 1 ; i < arr.length; i++){
+             if(answer[answer.length-1] < arr[i]){
+                answer.push(arr[i]);
+             }
+            }
+            return answer.length;
+        }
+        
+        console.log(taller_than_pre(arr))
+
+        /* 답 */
+        // function solution(arr){         
+        //         let answer=1, max=arr[0];
+        //         for(let i=1; i<arr.length; i++){
+        //             if(arr[i]>max){
+        //                 answer++;
+        //                 max=arr[i];
+        //             }
+        //         }
+        //         return answer;
+        //     }
+
+        //     let arr=[130, 135, 148, 140, 145, 150, 150, 153];
+        //     console.log(solution(arr));
+    </script>
+</body>
+</html>
